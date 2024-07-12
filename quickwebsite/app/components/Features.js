@@ -16,11 +16,10 @@ import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
 const items = [
   {
     icon: <ViewQuiltRoundedIcon />,
-    title: 'Dashboard',
+    title: 'DA BUTTON',
     description:
-      'This item could provide a snapshot of the most important metrics or data points related to the product.',
-    imageLight: 'url("/static/images/templates/templates-images/dash-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/dash-dark.png")',
+      <Button>Click to Trigger Database.</Button>,
+   
   },
   {
     icon: <EdgesensorHighRoundedIcon />,
@@ -225,11 +224,8 @@ export default function Features() {
                         event.stopPropagation();
                       }}
                     >
-                      <span>Learn more</span>
-                      <ChevronRightRoundedIcon
-                        fontSize="small"
-                        sx={{ mt: '1px', ml: '2px' }}
-                      />
+                      
+                      
                     </Link>
                   </Box>
                 </Box>

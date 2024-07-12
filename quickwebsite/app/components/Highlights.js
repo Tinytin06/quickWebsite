@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
-import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
+import SyncAltRounded from '@mui/icons-material/SyncAltRounded';
 import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
 import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded';
 import SupportAgentRoundedIcon from '@mui/icons-material/SupportAgentRounded';
@@ -15,22 +15,17 @@ import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
 const items = [
   {
     icon: <SettingsSuggestRoundedIcon />,
-    title: 'Adaptable performance',
+    title: 'Hard Working',
     description:
-      'Our product effortlessly adjusts to your needs, boosting efficiency and simplifying your tasks.',
+      'I worked hard and graduated at 20 and have been learning new technologies with my project Destiny Music Hub.',
   },
   {
-    icon: <ConstructionRoundedIcon />,
-    title: 'Built to last',
+    icon: <SyncAltRounded />,
+    title: 'Adaptable',
     description:
-      'Experience unmatched durability that goes above and beyond with lasting investment.',
+      'I love to learn many different things. In fact I took many broadranges of Electives at school from Natural Language Processing, to Cloud Computing, to even Secure Coding Principles. On top of that I continue to learn from my peers such as using projects to learn.',
   },
-  {
-    icon: <ThumbUpAltRoundedIcon />,
-    title: 'Great user experience',
-    description:
-      'Integrate our product into your routine with an intuitive and easy-to-use interface.',
-  },
+  
   {
     icon: <AutoFixHighRoundedIcon />,
     title: 'Innovative functionality',
@@ -39,15 +34,21 @@ const items = [
   },
   {
     icon: <SupportAgentRoundedIcon />,
-    title: 'Reliable support',
+    title: 'Project Leader',
     description:
-      'Count on our responsive customer support, offering assistance that goes beyond the purchase.',
+      'Throughout my projects I often lead in many different ways, through example, as a traditional leader, and as a punctual time keeper.',
   },
   {
     icon: <QueryStatsRoundedIcon />,
     title: 'Precision in every detail',
     description:
       'Enjoy a meticulously crafted product where small touches make a significant impact on your overall experience.',
+  },
+  {
+    icon: <ThumbUpAltRoundedIcon />,
+    title: 'Collaborate Well',
+    description:
+      'I mesh well with others and in projects often .',
   },
 ];
 
@@ -81,9 +82,7 @@ export default function Highlights() {
             Highlights
           </Typography>
           <Typography variant="body1" sx={{ color: 'grey.400' }}>
-            Explore why our product stands out: adaptability, durability,
-            user-friendly design, and innovation. Enjoy reliable customer support and
-            precision in every detail.
+            I stand out because I am hard working, adaptable, a project leader, and I collaborate well.
           </Typography>
         </Box>
         <Grid container spacing={2.5}>
