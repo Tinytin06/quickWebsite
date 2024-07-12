@@ -1,3 +1,4 @@
+"use client";
 import * as React from 'react';
 import { PaletteMode } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -88,7 +89,6 @@ export default function LandingPage() {
         <Divider />
         <Highlights />
         <Divider />
-        <Pricing />
         <Divider />
         <FAQ />
         <Divider />
