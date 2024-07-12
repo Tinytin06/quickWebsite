@@ -83,7 +83,7 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: '100%', md: '70%' } }}
             >
-              You can reach me at my email.
+              You can reach me at my email. 
               <Link>aluu0610@gmail.com</Link>
             </Typography>
           </AccordionDetails>
