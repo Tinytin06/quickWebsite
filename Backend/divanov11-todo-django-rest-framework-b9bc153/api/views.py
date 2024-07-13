@@ -3,9 +3,9 @@ from django.http import JsonResponse
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .serializers import TaskSerializer
+from .serializers import UserSerializer
 
-from .models import Task
+from .models import User
 # Create your views here.
 
 @api_view(['GET'])
@@ -22,20 +22,20 @@ def apiOverview(request):
 
 @api_view(['GET'])
 def visited(request):
-	tasks = Task.objects.all().order_by('-id')
-	serializer = TaskSerializer(tasks, many=True)
+	users = User.objects.all().order_by('-id')
+	serializer = UserSerializer(users, many=True)
 	return Response(serializer.data)
 
 @api_view(['GET'])
 def buttonPressed(request, pk):
-	tasks = Task.objects.get(id=pk)
-	serializer = TaskSerializer(tasks, many=False)
+	users = User.objects.get(id=pk)
+	serializer = UserSerializer(users, many=False)
 	return Response(serializer.data)
 
 
 @api_view(['POST'])
 def taskCreate(request):
-	serializer = TaskSerializer(data=request.data)
+	serializer = UserSerializer(data=request.data)
 
 	if serializer.is_valid():
 		serializer.save()
@@ -44,7 +44,7 @@ def taskCreate(request):
 
 @api_view(['POST'])
 def taskUpdate(request, pk):
-	task = Task.objects.get(id=pk)
+	user = User.objects.get(id=pk)
 	serializer = TaskSerializer(instance=task, data=request.data)
 
 	if serializer.is_valid():
