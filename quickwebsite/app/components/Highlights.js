@@ -25,25 +25,13 @@ const items = [
     description:
       'I love to learn many different things. In fact I took many broadranges of Electives at school from Natural Language Processing, to Cloud Computing, to even Secure Coding Principles. On top of that I continue to learn from my peers such as using projects to learn.',
   },
-  
-  {
-    icon: <AutoFixHighRoundedIcon />,
-    title: 'Innovative functionality',
-    description:
-      'Stay ahead with features that set new standards, addressing your evolving needs better than the rest.',
-  },
   {
     icon: <SupportAgentRoundedIcon />,
     title: 'Project Leader',
     description:
       'Throughout my projects I often lead in many different ways, through example, as a traditional leader, and as a punctual time keeper.',
   },
-  {
-    icon: <QueryStatsRoundedIcon />,
-    title: 'Precision in every detail',
-    description:
-      'Enjoy a meticulously crafted product where small touches make a significant impact on your overall experience.',
-  },
+ 
   {
     icon: <ThumbUpAltRoundedIcon />,
     title: 'Collaborate Well',

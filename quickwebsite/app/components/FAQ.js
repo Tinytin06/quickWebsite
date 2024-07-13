@@ -106,7 +106,7 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: '100%', md: '70%' } }}
             >
-              Im working on a project with my friends using the MERN stack and AWS route 53 and ec2 it can be found here <Link>https://github.com/Gabe-Bryan/DestinyMusicHub</Link>.
+              Im working on a project with my friends using the MERN stack and AWS route 53 and ec2 called DestinyMusicHub and you can always keep up on my github <Link href="https://github.com/Tinytin06">https://github.com/Tinytin06</Link>.
             </Typography>
           </AccordionDetails>
         </Accordion>

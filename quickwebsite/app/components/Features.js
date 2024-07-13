@@ -13,25 +13,28 @@ import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
 import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
 import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
 
+const clicked = 0
 const items = [
   {
     icon: <ViewQuiltRoundedIcon />,
     title: 'DA BUTTON',
-    description:
-      <Button>Click to Trigger Database.</Button>,
+    description:<div>
+      <Button>Click as many times as you want then reload the page to see total number of clicks.</Button>
+      <div>The button has been clicked {clicked} times</div>
+      </div>,
    
   },
   {
     icon: <EdgesensorHighRoundedIcon />,
     title: 'Mobile integration',
     description:
-      'This item could provide information about the mobile app version of the product.',
+      'Mobile view is not working',
     imageLight: 'url("/static/images/templates/templates-images/mobile-light.png")',
     imageDark: 'url("/static/images/templates/templates-images/mobile-dark.png")',
   },
   {
     icon: <DevicesRoundedIcon />,
-    title: 'Available on all platforms',
+    title: 'Number of site visits',
     description:
       'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
     imageLight: 'url("/static/images/templates/templates-images/devices-light.png")',
@@ -61,9 +64,7 @@ export default function Features() {
               color="text.secondary"
               sx={{ mb: { xs: 2, sm: 4 } }}
             >
-              Here you can provide a brief overview of the key features of the
-              product. For example, you could list the number of features, the types
-              of features, add-ons, or the benefits of the features.
+             Both Usable and Usable Features
             </Typography>
           </div>
           <Grid container item gap={1} sx={{ display: { xs: 'auto', sm: 'none' } }}>
