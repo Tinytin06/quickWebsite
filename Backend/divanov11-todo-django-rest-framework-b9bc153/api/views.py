@@ -34,7 +34,7 @@ def buttonPressed(request, pk):
 
 
 @api_view(['POST'])
-def taskCreate(request):
+def userCreate(request):
 	serializer = UserSerializer(data=request.data)
 
 	if serializer.is_valid():
@@ -43,9 +43,9 @@ def taskCreate(request):
 	return Response(serializer.data)
 
 @api_view(['POST'])
-def taskUpdate(request, pk):
+def userUpdate(request, pk):
 	user = User.objects.get(id=pk)
-	serializer = TaskSerializer(instance=task, data=request.data)
+	serializer = UserSerializer(instance=user, data=request.data)
 
 	if serializer.is_valid():
 		serializer.save()
@@ -53,12 +53,12 @@ def taskUpdate(request, pk):
 	return Response(serializer.data)
 
 
-@api_view(['DELETE'])
-def taskDelete(request, pk):
-	task = Task.objects.get(id=pk)
-	task.delete()
+# @api_view(['DELETE'])
+# def taskDelete(request, pk):
+# 	task = Task.objects.get(id=pk)
+# 	task.delete()
 
-	return Response('Item succsesfully delete!')
+# 	return Response('Item succsesfully delete!')
 
 
 

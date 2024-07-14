@@ -3,10 +3,10 @@ from . import views
 
 urlpatterns = [
 	path('', views.apiOverview, name="api-overview"),
-	path('/amounts/visited/', views.visited, name="task-list"),
-	path('/amounts/clicked/', views.buttonPressed, name="task-detail"),
-	path('task-create/', views.taskCreate, name="task-create"),
+	path('/amounts/visited/', views.visited, name="user-view"),
+	path('/amounts/clicked/', views.buttonPressed, name="user-view-button-pressed"),
+	path('task-create/', views.userCreate, name="task-create"),
 
-	path('task-update/<str:pk>/', views.taskUpdate, name="task-update"),
+	path('task-update/<str:pk>/', views.userUpdate, name="task-update"),
 	path('task-delete/<str:pk>/', views.taskDelete, name="task-delete"),
 ]
