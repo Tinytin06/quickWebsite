@@ -13,12 +13,13 @@ import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
 import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
 import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
 import { TextField } from '@mui/material';
-import {} from "util";
+import {amountVisited} from "../util.js";
 var clicked = 0
 const highScore = ""
+const allUsers=await amountVisited();
 var name = ''
 function sendToDatabase(name, clicked){
-
+console.log(allUsers)
 }
 const items = [
   {
@@ -30,7 +31,11 @@ const items = [
         console.log(clicked)
       }}>Click as many times as you want submit then reload the page to see total number of clicks.</Button>
       <div>The button has been clicked {clicked} times</div>
-      <Button onClick={()=>console.log(name,clicked)}>submit</Button>
+      <Button onClick={()=>{
+        console.log(name,clicked)
+        sendToDatabase(name,clicked)
+
+      }}>submit</Button>
       <div>{highScore} has clicked the button the most times.</div>
       </div>,
    
