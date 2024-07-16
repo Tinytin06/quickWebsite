@@ -1,5 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-/Backend/divanov11-todo-django-rest-framework-b9bc153/todo_drf
+../Backend/divanov11-todo-django-rest-framework-b9bc153/todo_drf
 # dependencies
 /node_modules
 /.pnp
