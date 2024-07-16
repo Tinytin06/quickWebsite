@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
 	path('', views.apiOverview, name="api-overview"),
 	path('amounts/visited/', views.visited, name="user-view"),
-    path('ammounts/',views.users, name="user-list"),
+    # path('amounts/',views.users, name="user-list"),
 	path('amounts/clicked/', views.buttonPressed, name="user-view-button-pressed"),
 	path('user-create/', views.userCreate, name="task-create"),
 
