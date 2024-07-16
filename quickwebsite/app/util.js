@@ -18,9 +18,18 @@ const baseURI = "http://127.0.0.1:8000/"
 export  function amountVisited(){
     const uriVisited = baseURI+"api/amounts/visited/"
     
-        return( fetch(uriVisited,{headers:{'X-CSRFToken':csrftoken,}}).then((res)=> res.json()))
+        return(fetch(uriVisited,{headers:{'X-CSRFToken':csrftoken,}}).then((res)=> res.json()))
         
     
+}
+export function buildList(){
+    var wrapper  =document.getElementById('list-wrapper')
+    var url = "http://127.0.0.1:8000/api/amounts/visited/"
+    fetch(url)
+			.then((resp) => resp.json())
+			.then(function(data){
+				console.log('Data:', data)
+            })
 }
 export async function amountClicked(){
     const uriClicked = baseURI+"/amounts/clicked/"

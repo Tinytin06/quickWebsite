@@ -13,13 +13,13 @@ import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
 import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
 import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
 import { TextField } from '@mui/material';
-import {amountVisited} from "../util.js";
+import {buildList} from "../util.js";
 var clicked = 0
 const highScore = ""
-const allUsers=await amountVisited();
+const allUsers= buildList();
 var name = ''
 function sendToDatabase(name, clicked){
-console.log(allUsers)
+//console.log(allUsers)
 }
 const items = [
   {
