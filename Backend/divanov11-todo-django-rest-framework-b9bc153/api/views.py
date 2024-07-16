@@ -13,11 +13,11 @@ def apiOverview(request):
 	api_urls = {
 		'Visited':'/amounts/visited/',
 		'Button Clicked':'/amounts/clicked/',
-		'Create':'/task-create/',
+		'Create':'/user-create/',
 		'Update':'/task-update/<str:pk>/',
 		'Delete':'/task-delete/<str:pk>/',
 		}
-
+	print(request.headers["HOST"])
 	return Response(api_urls)
 
 @api_view(['GET'])
@@ -39,7 +39,6 @@ def userCreate(request):
 
 	if serializer.is_valid():
 		serializer.save()
-
 	return Response(serializer.data)
 
 @api_view(['POST'])
@@ -55,7 +54,7 @@ def userUpdate(request, pk):
 
 @api_view(['DELETE'])
 def taskDelete(request, pk):
-	task = Task.objects.get(id=pk)
+	task = User.objects.get(id=pk)
 	task.delete()
 
 	return Response('Item succsesfully delete!')

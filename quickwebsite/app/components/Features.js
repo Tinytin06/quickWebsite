@@ -12,15 +12,26 @@ import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
 import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
 import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
+import { TextField } from '@mui/material';
+import {} from "util";
+var clicked = 0
+const highScore = ""
+var name = ''
+function sendToDatabase(name, clicked){
 
-const clicked = 0
+}
 const items = [
   {
     icon: <ViewQuiltRoundedIcon />,
     title: 'DA BUTTON',
     description:<div>
-      <Button>Click as many times as you want then reload the page to see total number of clicks.</Button>
+      <TextField placeholderx="name" onChange={(event)=>name=event.target.value}>Name</TextField>
+      <Button onClick={()=>{clicked+=1
+        console.log(clicked)
+      }}>Click as many times as you want submit then reload the page to see total number of clicks.</Button>
       <div>The button has been clicked {clicked} times</div>
+      <Button onClick={()=>console.log(name,clicked)}>submit</Button>
+      <div>{highScore} has clicked the button the most times.</div>
       </div>,
    
   },
