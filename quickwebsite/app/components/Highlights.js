@@ -5,35 +5,30 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
-import SyncAltRounded from '@mui/icons-material/SyncAltRounded';
-import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
-import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded';
-import SupportAgentRoundedIcon from '@mui/icons-material/SupportAgentRounded';
-import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
+
 
 const items = [
   {
-    icon: <SettingsSuggestRoundedIcon />,
+    icon: "",
     title: 'Hard Working',
     description:
       'I worked hard and graduated at 20 and have been learning new technologies with my project Destiny Music Hub.',
   },
   {
-    icon: <SyncAltRounded />,
+    icon: "",
     title: 'Adaptable',
     description:
       'I love to learn many different things. In fact I took many broadranges of Electives at school from Natural Language Processing, to Cloud Computing, to even Secure Coding Principles. On top of that I continue to learn from my peers such as using projects to learn.',
   },
   {
-    icon: <SupportAgentRoundedIcon />,
+    icon: "",
     title: 'Project Leader',
     description:
       'Throughout my projects I often lead in many different ways, through example, as a traditional leader, and as a punctual time keeper.',
   },
  
   {
-    icon: <ThumbUpAltRoundedIcon />,
+    icon: "",
     title: 'Collaborate Well',
     description:
       'I mesh well with others and in projects often .',

@@ -8,26 +8,24 @@ import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
-import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
-import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
-import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
+
 import { TextField } from '@mui/material';
-import {buildList, amountVisited,sendClicks,updateClicks} from "../util.js";
+import * as util from "./util.js";
 
-var clicked = 0
+// var clicked = 0
 
-var url = "http://127.0.0.1:8000/api/amounts/visited"
+// var url = "http://18.188.26.75:8000/api/amounts/visited"
 
-var pressed = 0
-// const allUsers= amountVisited();
+// var pressed = 0
+
 
 // for (let i=0;i<allUsers.length;i++) {
 //     pressed=allUsers[i].pressed+pressed
 // }
 //console.log(allUsers)
-var name = ''
+//var name = ''
 function sendToDatabase(name, clicked){
+  var url = "http://18.188.26.75:8000/api/amounts/visited"
     fetch(url)
 			.then((resp) => resp.json())
 			.then(function(data){
@@ -49,12 +47,12 @@ function sendToDatabase(name, clicked){
 
 const items = [
   {
-    icon: <ViewQuiltRoundedIcon />,
+    icon:"",
     title: 'DA BUTTON',
     description:"look to the side it is DA BUTTON"
   },
   {
-    icon: <EdgesensorHighRoundedIcon />,
+    icon:"",
     title: 'Mobile integration',
     description:
       'Mobile view is not working',
@@ -62,7 +60,7 @@ const items = [
     imageDark: 'url("/static/images/templates/templates-images/mobile-dark.png")',
   },
   {
-    icon: <DevicesRoundedIcon />,
+    icon:"",
     title: 'Number of site visits',
     description:
       'You, me, that is it',
@@ -73,27 +71,31 @@ const items = [
 
 export default function Features() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
-  var [pressbut,setPressedbut] =React.useState(0)
-  const handleItemClick = (index) => {
-    setSelectedItemIndex(index);
-  };
-
-fetch(url)
-  .then((resp) => resp.json())
-  .then(function(data){
-    console.log(pressbut)
-    if (pressbut==0){
-      console.log("pressed is not 0")
-      for (let i=0;i<data.length;i++){
-        pressbut=pressbut+data[i].pressed
-        
-        console.log(pressbut)
-      }
-      
-      setPressedbut(pressbut)
-
-    }
-})
+  // var [pressbut,setPressedbut] =React.useState(0)
+  // const handleItemClick = (index) => {
+  //   setSelectedItemIndex(index);
+  // };
+  // useEffect(() => {
+  //   fetch(url)
+  //     .then((resp) => resp.json())
+  //     .then(function(data) {
+  //       console.log(pressBut);
+  //       if (pressBut === 0) {
+  //         console.log("pressed is not 0");
+  //         let totalPressed = 0;
+  //         for (let i = 0; i < data.length; i++) {
+  //           totalPressed += data[i].pressed;
+  //           console.log(totalPressed);
+  //         }
+  //         setPressBut(totalPressed);
+  //       }
+  //     });
+  // }, [pressBut]);
+  // useEffect(() => {
+  //   console.log(name, clicked);
+  //   sendToDatabase(name, clicked);
+  //   clicked = 0;
+  // }, [name, clicked]);
   const selectedFeature = items[selectedItemIndex];
 
   
@@ -178,10 +180,7 @@ fetch(url)
                 }}
               >
                 <span>Learn more</span>
-                <ChevronRightRoundedIcon
-                  fontSize="small"
-                  sx={{ mt: '1px', ml: '2px' }}
-                />
+                
               </Link>
             </Box>
           </Box>
@@ -286,12 +285,13 @@ fetch(url)
           md={6}
           sx={{ display: { xs: 'none', sm: 'flex' }, width: '100%' }}
         >
-          <center>
+          {/* <center>
       
       <TextField placeholder="name" onChange={(event)=>name=event.target.value}>Name</TextField>
       <Button onClick={()=>{clicked+=1
         console.log(clicked)
       }}>Click as many times as you want submit then reload the page to see total number of clicks.</Button>
+
       <div>The button has been clicked {pressbut} times</div>
       <Button onClick={()=>{
         console.log(name,clicked)
@@ -300,7 +300,7 @@ fetch(url)
 
       }}>submit</Button>
       
-      </center>
+      </center> */}
             
           
         </Grid>

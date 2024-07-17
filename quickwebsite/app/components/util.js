@@ -1,4 +1,4 @@
-import { title } from "process";
+
 
 function getCookie(name) {
     var cookieValue = null;
@@ -15,14 +15,9 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-var csrftoken = getCookie('csrftoken');
-const baseURI = "http://127.0.0.1:8000/"
-export async function amountVisited(){
-    const uriVisited = baseURI+"api/amounts/visited"
-    return await fetch(uriVisited,{method:"GET",headers:{'X-CSRFToken':csrftoken,}}).then(async res => await res.json());
-        
-    
-}
+// var csrftoken = getCookie('csrftoken');
+// const baseURI = "http://18.188.26.75:8000/"
+
 export function buildList(){
     var wrapper  =document.getElementById('list-wrapper')
     var url = "http://127.0.0.1:8000/api/amounts/visited"
@@ -32,12 +27,14 @@ export function buildList(){
 				console.log(data)
             })
 }
-export async function amountClicked(){
-    const uriClicked = baseURI+"/amounts/clicked/"
-    return await fetch(uriClicked).then(async res=> await res.json())
-}
+// export async function amountClicked(){
+//     const uriClicked = baseURI+"/amounts/clicked/"
+//     return await fetch(uriClicked).then(async res=> await res.json())
+// }
 export async function sendClicks(title, pressed){
+    const baseURI = "http://18.188.26.75:8000/"
     const uriSend = baseURI+"api/user-create/"
+    var csrftoken = getCookie('csrftoken');
 
     return await fetch(uriSend,{
         method:"POST",
@@ -51,6 +48,8 @@ export async function sendClicks(title, pressed){
     })
 }
 export async function updateClicks(title, pressed,userId){
+    const baseURI = "http://18.188.26.75:8000/"
+    var csrftoken = getCookie('csrftoken');
     const uriSend = baseURI+"api/task-update/"+userId+"/"
 
     return await fetch(uriSend,{
