@@ -7,7 +7,6 @@ from .serializers import UserSerializer
 
 from .models import User
 # Create your views here.
-
 @api_view(['GET'])
 def apiOverview(request):
 	api_urls = {

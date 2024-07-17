@@ -1,3 +1,5 @@
+import { title } from "process";
+
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -15,34 +17,50 @@ function getCookie(name) {
 }
 var csrftoken = getCookie('csrftoken');
 const baseURI = "http://127.0.0.1:8000/"
-export  function amountVisited(){
-    const uriVisited = baseURI+"api/amounts/visited/"
-    
-        return(fetch(uriVisited,{headers:{'X-CSRFToken':csrftoken,}}).then((res)=> res.json()))
+export async function amountVisited(){
+    const uriVisited = baseURI+"api/amounts/visited"
+    return await fetch(uriVisited,{method:"GET",headers:{'X-CSRFToken':csrftoken,}}).then(async res => await res.json());
         
     
 }
 export function buildList(){
     var wrapper  =document.getElementById('list-wrapper')
-    var url = "http://127.0.0.1:8000/api/amounts/visited/"
+    var url = "http://127.0.0.1:8000/api/amounts/visited"
     fetch(url)
 			.then((resp) => resp.json())
 			.then(function(data){
-				console.log('Data:', data)
+				console.log(data)
             })
 }
 export async function amountClicked(){
     const uriClicked = baseURI+"/amounts/clicked/"
     return await fetch(uriClicked).then(async res=> await res.json())
 }
-export async function sendClicks(clicks){
-    const uriSend = baseURI+"/user-create/"
+export async function sendClicks(title, pressed){
+    const uriSend = baseURI+"api/user-create/"
 
     return await fetch(uriSend,{
         method:"POST",
         headers:{
+            'Content-type':'application/json',
+            'X-CSRFToken':csrftoken,
+
 
         },
-        body:""
+        body:JSON.stringify({"title":title,"completed":false,'pressed':pressed})
+    })
+}
+export async function updateClicks(title, pressed,userId){
+    const uriSend = baseURI+"api/task-update/"+userId+"/"
+
+    return await fetch(uriSend,{
+        method:"POST",
+        headers:{
+            'Content-type':'application/json',
+            'X-CSRFToken':csrftoken,
+
+
+        },
+        body:JSON.stringify({"title":title,"completed":false,'pressed':pressed})
     })
 }

@@ -13,32 +13,45 @@ import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
 import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
 import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
 import { TextField } from '@mui/material';
-import {buildList} from "../util.js";
+import {buildList, amountVisited,sendClicks,updateClicks} from "../util.js";
+
 var clicked = 0
-const highScore = ""
-const allUsers= buildList();
+
+var url = "http://127.0.0.1:8000/api/amounts/visited"
+
+var pressed = 0
+// const allUsers= amountVisited();
+
+// for (let i=0;i<allUsers.length;i++) {
+//     pressed=allUsers[i].pressed+pressed
+// }
+//console.log(allUsers)
 var name = ''
 function sendToDatabase(name, clicked){
-//console.log(allUsers)
+    fetch(url)
+			.then((resp) => resp.json())
+			.then(function(data){
+          let flag = false
+            for (let i=0;i<data.length;i++) {
+              if (data[i].title==name) {
+                let pressed=clicked+data[i].pressed
+                console.log("found it",pressed)
+                updateClicks(name,pressed,data[i].id)
+                flag=true
+              }
+            }
+            if (!flag){
+            sendClicks(name,clicked)
+            }
+            })
 }
+
+
 const items = [
   {
     icon: <ViewQuiltRoundedIcon />,
     title: 'DA BUTTON',
-    description:<div>
-      <TextField placeholderx="name" onChange={(event)=>name=event.target.value}>Name</TextField>
-      <Button onClick={()=>{clicked+=1
-        console.log(clicked)
-      }}>Click as many times as you want submit then reload the page to see total number of clicks.</Button>
-      <div>The button has been clicked {clicked} times</div>
-      <Button onClick={()=>{
-        console.log(name,clicked)
-        sendToDatabase(name,clicked)
-
-      }}>submit</Button>
-      <div>{highScore} has clicked the button the most times.</div>
-      </div>,
-   
+    description:"look to the side it is DA BUTTON"
   },
   {
     icon: <EdgesensorHighRoundedIcon />,
@@ -60,13 +73,30 @@ const items = [
 
 export default function Features() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
-
+  var [pressbut,setPressedbut] =React.useState(0)
   const handleItemClick = (index) => {
     setSelectedItemIndex(index);
   };
 
+fetch(url)
+  .then((resp) => resp.json())
+  .then(function(data){
+    console.log(pressbut)
+    if (pressbut==0){
+      console.log("pressed is not 0")
+      for (let i=0;i<data.length;i++){
+        pressbut=pressbut+data[i].pressed
+        
+        console.log(pressbut)
+      }
+      
+      setPressedbut(pressbut)
+
+    }
+})
   const selectedFeature = items[selectedItemIndex];
 
+  
   return (
     <Container id="features" sx={{ py: { xs: 8, sm: 16 } }}>
       <Grid container spacing={6}>
@@ -256,30 +286,26 @@ export default function Features() {
           md={6}
           sx={{ display: { xs: 'none', sm: 'flex' }, width: '100%' }}
         >
-          <Card
-            variant="outlined"
-            sx={{
-              height: '100%',
-              width: '100%',
-              display: { xs: 'none', sm: 'flex' },
-              pointerEvents: 'none',
-            }}
-          >
-            <Box
-              sx={{
-                m: 'auto',
-                width: 420,
-                height: 500,
-                backgroundSize: 'contain',
-                backgroundImage: (theme) =>
-                  theme.palette.mode === 'light'
-                    ? items[selectedItemIndex].imageLight
-                    : items[selectedItemIndex].imageDark,
-              }}
-            />
-          </Card>
+          <center>
+      
+      <TextField placeholder="name" onChange={(event)=>name=event.target.value}>Name</TextField>
+      <Button onClick={()=>{clicked+=1
+        console.log(clicked)
+      }}>Click as many times as you want submit then reload the page to see total number of clicks.</Button>
+      <div>The button has been clicked {pressbut} times</div>
+      <Button onClick={()=>{
+        console.log(name,clicked)
+        sendToDatabase(name,clicked)
+        clicked=0
+
+      }}>submit</Button>
+      
+      </center>
+            
+          
         </Grid>
       </Grid>
+      
     </Container>
   );
 }
