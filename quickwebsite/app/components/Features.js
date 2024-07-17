@@ -65,7 +65,7 @@ const items = [
     icon: <DevicesRoundedIcon />,
     title: 'Number of site visits',
     description:
-      'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
+      'You, me, that is it',
     imageLight: 'url("/static/images/templates/templates-images/devices-light.png")',
     imageDark: 'url("/static/images/templates/templates-images/devices-dark.png")',
   },
